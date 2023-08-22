@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Mangatha</title>
+</head>
+<body>
+<!DOCTYPE html>
+            <html>
+              <head>
+                <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+              </head>
+              <body>
+				<div class="odocontent">
+                <h1 >Welcome to the game of Mangatha</h1>
+                <form method="post" action="">
+					<label for="person">Enter Name:</label>
+					<input type="text" id="person" name="person" placeholder="john">
+					<label for="card">Enter Card:</label>
+					<input type="text" id="card" name="card" placeholder="AS">
+					<label for="position">Choose Position</label>
+					<select name="position" id="position">
+						<option value="In">In</option>
+						<option value="Out">Out</option>
+					</select>
+					<label>Bet</label>
+					<input type="text" name="bet" id="bet" placeholder="5">
+					<input type="submit" value="Register">
+				</form>
+				<div class="players">
+				    <h2>Players</h2>
+				    <ul>
+				        <li th:each="player : ${Players}">
+				            <p th:text="${player.playerName}"></p>
+				            <p>Chosen Card: <span th:text="${player.choosenCard}"></span></p>
+				            <!-- <p>Position: <span th:text="${player.getPos}"></span></p> -->
+					    	<p>Result: <span th:text="${player.result}"></span></p>
+				        </li>
+				    </ul>
+				</div>
+                </div>
+              </body>
+            </html>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="static/MangathaStyle.css">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+	<h1>Welcome to Mangatha Game</h1>
+	<form method="post" action="MangathaDisplay">
+		<input type="submit" value="display" name="action">
+	</form>
+		<div class="card" data-suit="${TopCard}.Symbol">
+		<p class="cardEle"><span  th:text="${TopCard}"></span></p>
+		
+		</div>
+		</div>
+</body>
+</html>
