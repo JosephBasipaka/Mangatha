@@ -12,6 +12,9 @@ public class MangathaController {
 			}
 		}
 	}
+	
+	private Card inCard;
+	private Card outCard;
 	public void shuffle()
 	{
 		Collections.shuffle(cards);
@@ -26,6 +29,18 @@ public class MangathaController {
 			return new Card(0,0);
 		}
 		return cards.remove(0);
+	}
+	public void addCards() {
+		inCard = removeTop();
+		outCard = removeTop();
+		
+	}
+	
+	public Card getinCard() {
+		return inCard;
+	}
+	public Card getOutCard() {
+		return outCard;
 	}
 	
 	public Card removeBottom() {
@@ -48,8 +63,9 @@ public class MangathaController {
         return players;
     }
     
-	public void evaluatePlayers(Card choosenCard) {
+	public String evaluatePlayers(Card choosenCard) {
         InOut inAndOut = new InOut(choosenCard);
+        StringBuilder res = new StringBuilder();
 
         for (Player player : players) {
             boolean isChoosenCardIn = player.isIn();
@@ -57,11 +73,18 @@ public class MangathaController {
 
             if (isChoosenCardIn == isIn) {
                 player.setResult("Winner!!!");
+                res.append(player.getPlayerName()).append("Winner!!!");
             } else {
                 player.setResult("Loss###");
+                res.append(player.getPlayerName()).append("Loss###");
             }
         }
+        return res.toString();
     
     }
+	
+	public void reset() {
+		this.players = null ;
+	}
     
 }
